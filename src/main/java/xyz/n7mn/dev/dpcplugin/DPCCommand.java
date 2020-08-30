@@ -26,6 +26,12 @@ public class DPCCommand implements CommandExecutor {
             player = (Player) sender;
         }
 
+        if (label.startsWith("dpc-vertical") && args.length != 1 && args.length != 4){
+            sender.sendMessage("---- ドット絵自動生成プラグイン DPCPlugin ----");
+            sender.sendMessage("/dpc-vertical <URL> --- 現在位置を左上として縦に生成をする");
+            sender.sendMessage("/dpc-vertical <URL> <X> <Y> <Z> --- 指定した座標位置を左上として縦に生成をする");
+        }
+
         if (label.startsWith("dpc-vertical") && args.length == 1){
             if (player != null){
                 sender.sendMessage(ChatColor.YELLOW + "画像取得中...");
@@ -73,6 +79,12 @@ public class DPCCommand implements CommandExecutor {
                     sender.sendMessage(ChatColor.RED + "画像取得に失敗しました。");
                 }
             }
+        }
+
+        if (label.startsWith("dpc-side") && args.length != 1 && args.length != 4){
+            sender.sendMessage("---- ドット絵自動生成プラグイン DPCPlugin ----");
+            sender.sendMessage("/dpc-side <URL> --- 現在位置を左上として横に生成をする");
+            sender.sendMessage("/dpc-side <URL> <X> <Y> <Z> --- 指定した座標位置を左上として横に生成をする");
         }
 
         if (label.startsWith("dpc-side") && args.length == 1){

@@ -39,7 +39,7 @@ public class DPCCommand implements CommandExecutor {
                     sender.sendMessage(ChatColor.YELLOW + "画像取得完了。 画像解析中...");
                     List<ImageBlockData> data = new ImageRead().getBlockData(stream);
                     sender.sendMessage(ChatColor.YELLOW + "画像解析完了。組み立てます...");
-                    new SetBlock().setBlockByVertical(player.getWorld(), player.getLocation().getBlockX(), player.getLocation().getBlockY(), player.getLocation().getBlockZ(), data);
+                    new SetBlock().setBlockByVertical(player.getWorld(), player.getLocation().getBlockX(), player.getLocation().getBlockY(), player.getLocation().getBlockZ(), (int) player.getLocation().getYaw(), data);
                     sender.sendMessage(ChatColor.YELLOW + "組み立て完了しました。");
 
                 } catch (IOException e) {

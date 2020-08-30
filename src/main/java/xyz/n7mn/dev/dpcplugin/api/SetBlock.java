@@ -12,12 +12,34 @@ public class SetBlock {
     location.getBlock().setType(Material.AIR);
      */
 
-    public boolean setBlockByVertical(World world,int x, int y, int z, List<ImageBlockData> dataList){
+    public boolean setBlockByVertical(World world,int x, int y, int z, int yaw, List<ImageBlockData> dataList){
 
         try {
-            for (ImageBlockData data : dataList){
-                Location loc = new Location(world, x, y - data.z, z + data.x);
-                loc.getBlock().setType(data.block);
+            // System.out.println("yaw : "+yaw);
+            if (yaw <= -45 && yaw > -135){
+                // System.out.println("east");
+                for (ImageBlockData data : dataList){
+                    Location loc = new Location(world, x, y - data.z, z + data.x);
+                    loc.getBlock().setType(data.block);
+                }
+            } else if (yaw >= 45 && yaw < 135){
+                // System.out.println("west");
+                for (ImageBlockData data : dataList){
+                    Location loc = new Location(world, x, y - data.z, z - data.x);
+                    loc.getBlock().setType(data.block);
+                }
+            } else if (yaw > -45 && yaw < 45){
+                // System.out.println("south");
+                for (ImageBlockData data : dataList){
+                    Location loc = new Location(world, x - data.x, y - data.z, z);
+                    loc.getBlock().setType(data.block);
+                }
+            } else {
+                // System.out.println("north");
+                for (ImageBlockData data : dataList){
+                    Location loc = new Location(world, x + data.x, y - data.z, z);
+                    loc.getBlock().setType(data.block);
+                }
             }
         } catch (Exception e){
             e.printStackTrace();
@@ -28,7 +50,7 @@ public class SetBlock {
         return true;
     }
 
-    public boolean setBlockBySide(World world,int x, int y, int z, List<ImageBlockData> dataList){
+    public boolean setBlockBySide(World world,int x, int y, int z, int yaw, List<ImageBlockData> dataList){
         try {
             for (ImageBlockData data : dataList){
                 Location loc = new Location(world, x + data.x, y, z + data.z);

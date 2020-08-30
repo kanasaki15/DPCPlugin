@@ -42,7 +42,30 @@ public class DPCCommand implements CommandExecutor {
                     new SetBlock().setBlockByVertical(player.getWorld(), player.getLocation().getBlockX(), player.getLocation().getBlockY(), player.getLocation().getBlockZ(), (int) player.getLocation().getYaw(), data);
                     sender.sendMessage(ChatColor.YELLOW + "組み立て完了しました。");
 
-                } catch (IOException e) {
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    sender.sendMessage(ChatColor.RED + "画像取得に失敗しました。");
+                }
+            }
+        }
+
+        if (label.startsWith("dpc-side") && args.length == 1){
+            if (player != null){
+                sender.sendMessage(ChatColor.YELLOW + "画像取得中...");
+                OkHttpClient client = new OkHttpClient();
+                InputStream stream = null;
+
+                try {
+                    Request build = new Request.Builder().url(args[0]).build();
+                    Response response = client.newCall(build).execute();
+                    stream = response.body().byteStream();
+                    sender.sendMessage(ChatColor.YELLOW + "画像取得完了。 画像解析中...");
+                    List<ImageBlockData> data = new ImageRead().getBlockData(stream);
+                    sender.sendMessage(ChatColor.YELLOW + "画像解析完了。組み立てます...");
+                    new SetBlock().setBlockBySide(player.getWorld(), player.getLocation().getBlockX(), player.getLocation().getBlockY(), player.getLocation().getBlockZ(), (int) player.getLocation().getYaw(), data);
+                    sender.sendMessage(ChatColor.YELLOW + "組み立て完了しました。");
+
+                } catch (Exception e) {
                     e.printStackTrace();
                     sender.sendMessage(ChatColor.RED + "画像取得に失敗しました。");
                 }

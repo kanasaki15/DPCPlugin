@@ -123,7 +123,7 @@ public class BlockColor {
         blockColorList.add(new BlockColor(Material.SOUL_SAND,78,60,48));
         blockColorList.add(new BlockColor(Material.SOUL_SOIL,73,55,45));
         blockColorList.add(new BlockColor(Material.POLISHED_BASALT,96,96,98));
-        blockColorList.add(new BlockColor(Material.NETHER_BRICK,43,21,25));
+        blockColorList.add(new BlockColor(Material.NETHER_BRICKS,43,21,25));
         blockColorList.add(new BlockColor(Material.END_STONE_BRICKS,212,217,157));
         blockColorList.add(new BlockColor(Material.NETHER_QUARTZ_ORE,115,65,62));
         blockColorList.add(new BlockColor(Material.HAY_BLOCK,161,135,12));
@@ -160,6 +160,21 @@ public class BlockColor {
         blockColorList.add(new BlockColor(Material.GREEN_SHULKER_BOX,62,78,24));
         blockColorList.add(new BlockColor(Material.RED_SHULKER_BOX,113,24,23));
         blockColorList.add(new BlockColor(Material.PINK_SHULKER_BOX,180,94,121));
+        blockColorList.add(new BlockColor(Material.LOOM,135,114,88));
+        blockColorList.add(new BlockColor(Material.BARREL,128,96,55));
+        blockColorList.add(new BlockColor(Material.BLAST_FURNACE,77,76,77));
+        blockColorList.add(new BlockColor(Material.BEE_NEST,200,160,74));
+        blockColorList.add(new BlockColor(Material.BEEHIVE,172,139,86));
+        blockColorList.add(new BlockColor(Material.HONEY_BLOCK,205,141,45));
+        blockColorList.add(new BlockColor(Material.HONEYCOMB_BLOCK,220,143,28));
+        blockColorList.add(new BlockColor(Material.LODESTONE,140,142,145));
+        blockColorList.add(new BlockColor(Material.RESPAWN_ANCHOR,30,19,46));
+        blockColorList.add(new BlockColor(Material.DISPENSER,109,108,108));
+        blockColorList.add(new BlockColor(Material.NOTE_BLOCK,180,94,121));
+        blockColorList.add(new BlockColor(Material.REDSTONE_BLOCK,166,23,4));
+        blockColorList.add(new BlockColor(Material.BEACON,120,215,209));
+        blockColorList.add(new BlockColor(Material.TARGET,217,161,150));
+
 
         return blockColorList;
 

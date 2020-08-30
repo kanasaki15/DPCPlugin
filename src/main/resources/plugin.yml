@@ -5,3 +5,10 @@ api-version: 1.16
 authors: [n3m_]
 description: DPCPlugin
 website: https://n7mn.xyz/
+commands:
+  dpc-vertical:
+    description: '/dpc-vertical <URL>'
+    usage: '/dpc-vertical'
+  dpc-side:
+    description: '/dpc-side <URL>'
+    usage: '/dpc-side'

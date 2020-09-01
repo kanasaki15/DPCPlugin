@@ -19,10 +19,10 @@ public class SetBlock {
 
         try {
             Plugin plugin = Bukkit.getPluginManager().getPlugin("DPCPlugin");
-            for (ImageBlockData data : dataList){
-                new BukkitRunnable() {
-                    @Override
-                    public void run() {
+            new BukkitRunnable() {
+                @Override
+                public void run() {
+                    for (ImageBlockData data : dataList){
                         // System.out.println("yaw : "+yaw);
                         if (yaw < -45.0 && yaw >= -135.0) {
                             // System.out.println("east");
@@ -42,8 +42,9 @@ public class SetBlock {
                             loc.getBlock().setType(data.block);
                         }
                     }
-                }.runTaskLater(plugin, 2L);
-            }
+                }
+            }.runTaskLater(plugin, 0L);
+
         } catch (Exception e){
             e.printStackTrace();
             return false;
@@ -59,47 +60,32 @@ public class SetBlock {
 
             // System.out.println("yaw : " + yaw);
             // return true;
-
-            for (ImageBlockData data : dataList){
-                // System.out.println("yaw : " + yaw);
-                if (yaw < -45.0 && yaw >= -135.0) {
-                    System.out.println("east");
-                    new BukkitRunnable(){
-                        @Override
-                        public void run() {
+            new BukkitRunnable() {
+                @Override
+                public void run() {
+                    for (ImageBlockData data : dataList){
+                        // System.out.println("yaw : " + yaw);
+                        if (yaw < -45.0 && yaw >= -135.0) {
+                            //System.out.println("east");
                             Location loc = new Location(world, x - data.z, y, z + data.x);
                             loc.getBlock().setType(data.block);
-                        }
-                    }.runTaskLater(plugin, 2L);
-                } else if (yaw >= 45.0 && yaw < 135.0){
-                    // System.out.println("west");
-                    new BukkitRunnable(){
-                        @Override
-                        public void run() {
+                        } else if (yaw >= 45.0 && yaw < 135.0){
+                            // System.out.println("west");
                             Location loc = new Location(world, x + data.z, y, z - data.x);
                             loc.getBlock().setType(data.block);
-                        }
-                    }.runTaskLater(plugin, 2L);
-                } else if (yaw > -45.0 && yaw < 45.0) {
-                    // System.out.println("south");
-                    new BukkitRunnable(){
-                        @Override
-                        public void run() {
+                        } else if (yaw > -45.0 && yaw < 45.0) {
+                            // System.out.println("south");
                             Location loc = new Location(world, x - data.x, y, z - data.z);
                             loc.getBlock().setType(data.block);
-                        }
-                    }.runTaskLater(plugin, 2L);
-                } else {
-                    // System.out.println("north");
-                    new BukkitRunnable(){
-                        @Override
-                        public void run() {
+                        } else {
+                            // System.out.println("north");
                             Location loc = new Location(world, x + data.x, y, z + data.z);
                             loc.getBlock().setType(data.block);
                         }
-                    }.runTaskLater(plugin, 2L);
+                    }
                 }
-            }
+            }.runTaskLater(plugin, 0L);
+
         } catch (Exception e){
             e.printStackTrace();
             return false;
